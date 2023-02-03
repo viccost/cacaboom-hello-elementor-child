@@ -1,0 +1,87 @@
+/*
+	Theme Name: Hello Elementor Child
+	Template: hello-elementor
+	Theme URI: https://elementor.com/hello-theme/?utm_source=wp-themes&utm_campaign=theme-uri&utm_medium=wp-dash
+	Description: A plain-vanilla & lightweight theme for Elementor page builder
+	Version: 2.6.1
+	Stable tag: 2.6.1
+	Requires at least: 4.7
+	Tested up to: 5.9
+	Requires PHP: 5.6
+	License: GNU General Public License v3 or later.
+	License URI: https://www.gnu.org/licenses/gpl-3.0.html
+	Text Domain: helloelementorchild
+	Description: A lightweight, plain-vanilla, best suited for building your site using Elementor website builder. Visit https://elementor.com/hello-theme/ to learn more.
+	Tags: accessibility-ready, flexible-header, custom-colors, custom-menu, custom-logo, featured-images, rtl-language-support, threaded-comments, translation-ready,
+*/
+
+
+.woocommerce-variation-add-to-cart{
+	margin-top: 40px;
+}
+
+@media only screen and (min-width: 769px) {
+.woocommerce-variation-price {
+	font-size: 31px;
+}
+}
+
+@media only screen and (max-width: 768px) {
+.woocommerce-variation-price {
+	font-size: 24px;
+}
+}
+
+span.price {
+		color: var(--e-global-color-c45c576) !important;
+}
+
+button.alt.wp-element-button { 
+	font-size: 24px;
+	padding: 20px !important;
+	border-radius: 30px;
+	background-color: var(--e-global-color-c45c576) !important;
+	fill: white;
+}
+
+button.alt.wp-element-button:active{
+	background-color: var(--e-global-color-primary) !important;
+	color: var(--e-global-color-accent) !important;
+	fill:  var(--e-global-color-accent) !important;
+}
+
+
+button.alt.wp-element-button:hover{
+	background-color: var(--e-global-color-primary) !important;
+	color: var(--e-global-color-accent) !important;
+}
+
+
+@media only screen and (max-width: 769px) {
+button.alt.wp-element-button { 
+	font-size: 21px;
+}
+}
+
+a.reset_variations {
+	display: none;
+}
+
+
+.carrinho-checkout {
+	fill: white;
+	margin-right: 5px;
+}
+
+
+/* container ingredientes */
+@media only screen and (max-width: 769px) {
+	.content-ingredients  {
+		width: 100% !important;
+	}
+}
+
+/* feedbacks swiper bullets adjust */
+.swiper-pagination-bullets {
+	bottom: -30px !important;
+}
