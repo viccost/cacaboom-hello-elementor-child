@@ -17,7 +17,7 @@ function my_theme_enqueue_styles() {
 
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles', 11 );
 
-function my_remove_description_tab($tabs)
+function my_woocommerce_product_tabs($tabs)
 {
     unset($tabs['description']);
     unset($tabs['reviews']);       // Remove the reviews tab
@@ -25,7 +25,7 @@ function my_remove_description_tab($tabs)
     return $tabs;
 }
 
-function woocommerce_add_to_cart_button_text_single()
+function my_woocommerce_add_to_cart_button_text_single()
 {
 		function my_button_add_to_cart_text()
 	{
@@ -42,16 +42,46 @@ function woocommerce_add_to_cart_button_text_single()
     return __(my_button_add_to_cart_text(), 'woocommerce');
 }
 
-function woocommerce_add_to_cart_button_text_archives()
+function my_woocommerce_product_add_to_cart_text()
 {
     return __('Ver mais', 'woocommerce');
 }
 
-add_filter('woocommerce_product_tabs', 'my_remove_description_tab', 11);
-add_filter('woocommerce_product_single_add_to_cart_text', 'woocommerce_add_to_cart_button_text_single');
+/**
+ * Function for `woocommerce_format_price_range` filter-hook.
+ * 
+ * @param  $price 
+ * @param  $from  
+ * @param  $to    
+ *
+ * @return 
+ */
+function my_woocommerce_format_price_range( $price, $from, $to ){
+    $price = sprintf( _x( 'Valores de %1$s a %2$s', 'Price range: from-to', 'woocommerce' ), is_numeric( $from ) ? wc_price( $from ) : $from, is_numeric( $to ) ? wc_price( $to ) : $to );
+	return $price;
+}
+
+function my_woocommerce_billing_fields( $fields ) {
+    ## ---- 1.  Sort billing email and phone fields ---- ##
+    $fields['billing_number']['priority'] = 62;
+    ## $fields['billing_number_field']['class'] = array('form-row-first');
+    return $fields;
+}
+
+function my_custom_add_to_cart_redirect( $url ) {
+	$url = get_permalink(wc_get_page_id('Produtos'));
+	return $url;
+
+}
+
+add_filter('woocommerce_product_tabs', 'my_woocommerce_product_tabs', 11);
+add_filter('woocommerce_product_single_add_to_cart_text', 'my_woocommerce_add_to_cart_button_text_single');
 // Change add to cart text on product archives page
-add_filter('woocommerce_product_add_to_cart_text', 'woocommerce_add_to_cart_button_text_archives');
+add_filter('woocommerce_product_add_to_cart_text', 'my_woocommerce_product_add_to_cart_text');
 add_filter('woocommerce_product_variation_title_include_attributes', '__return_false', 1);
+add_filter( 'woocommerce_format_price_range', 'my_woocommerce_format_price_range', 10, 3 );
+add_filter(  'woocommerce_billing_fields', 'my_woocommerce_billing_fields', 20, 1 );
+add_filter( 'woocommerce_add_to_cart_redirect', 'my_custom_add_to_cart_redirect' );
 
 /* não funcionando
 add_action( 'wp_head', 'remove_add_to_cart', 11 );
@@ -59,5 +89,6 @@ function remove_add_to_cart() {
     remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 0);
     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart');
 }*/
+
 
 

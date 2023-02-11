@@ -36,6 +36,8 @@ span.price {
 		color: var(--e-global-color-c45c576) !important;
 }
 
+/* botão adicionar ao carrinho */
+
 button.alt.wp-element-button { 
 	font-size: 24px;
 	padding: 20px !important;
@@ -47,7 +49,7 @@ button.alt.wp-element-button {
 button.alt.wp-element-button:active{
 	background-color: var(--e-global-color-primary) !important;
 	color: var(--e-global-color-accent) !important;
-	fill:  var(--e-global-color-accent) !important;
+	border: none !important;
 }
 
 
@@ -56,12 +58,27 @@ button.alt.wp-element-button:hover{
 	color: var(--e-global-color-accent) !important;
 }
 
-
 @media only screen and (max-width: 769px) {
 button.alt.wp-element-button { 
 	font-size: 21px;
 }
 }
+
+/* div ingredientes */
+
+@media only screen and (max-width: 769px) {
+	.content-ingredients  {
+		width: 100% !important;
+	}
+}
+
+/* swiper bullets feedbacks */
+
+.swiper-pagination-bullets {
+	bottom: -30px !important;
+}
+
+/* --- */
 
 a.reset_variations {
 	display: none;
@@ -71,17 +88,4 @@ a.reset_variations {
 .carrinho-checkout {
 	fill: white;
 	margin-right: 5px;
-}
-
-
-/* container ingredientes */
-@media only screen and (max-width: 769px) {
-	.content-ingredients  {
-		width: 100% !important;
-	}
-}
-
-/* feedbacks swiper bullets adjust */
-.swiper-pagination-bullets {
-	bottom: -30px !important;
 }
