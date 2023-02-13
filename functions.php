@@ -69,7 +69,8 @@ function my_woocommerce_billing_fields( $fields ) {
 }
 
 function my_custom_add_to_cart_redirect( $url ) {
-	$url = get_permalink(wc_get_page_id('Produtos'));
+	$url = get_permalink('636');
+	## get_permalink(wc_get_page_id('Produtos'));
 	return $url;
 
 }
