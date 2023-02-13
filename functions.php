@@ -57,7 +57,7 @@ function my_woocommerce_product_add_to_cart_text()
  * @return 
  */
 function my_woocommerce_format_price_range( $price, $from, $to ){
-    $price = sprintf( _x( 'Valores de %1$s a %2$s', 'Price range: from-to', 'woocommerce' ), is_numeric( $from ) ? wc_price( $from ) : $from, is_numeric( $to ) ? wc_price( $to ) : $to );
+    $price = sprintf( _x( 'Valores de %1$s à %2$s', 'Price range: from-to', 'woocommerce' ), is_numeric( $from ) ? wc_price( $from ) : $from, is_numeric( $to ) ? wc_price( $to ) : $to );
 	return $price;
 }
 
