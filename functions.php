@@ -2,11 +2,11 @@
 
 
 function remove_pagseguro_css(){
-    wp_deregister_style('pagseguro-checkout');
     wp_dequeue_style('pagseguro-checkout');
+    wp_deregister_style('pagseguro-checkout');
 }
 
-add_action('wp_footer', 'remove_pagseguro_css', 11);
+add_action('wp_enqueue_scripts', 'remove_pagseguro_css', 20);
 
 function my_theme_enqueue_styles() {
 	wp_enqueue_style( 'child-style',
