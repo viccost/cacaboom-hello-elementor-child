@@ -204,3 +204,11 @@
 		width: 96%;
 	}
 }
+
+.pagseguro-method-form p{
+	padding: 3px 7px 3px 7px !important;
+}
+
+#pagseguro-payment-methods label{
+	width: auto !important;
+}
