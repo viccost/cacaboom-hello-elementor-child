@@ -52,7 +52,7 @@ function my_woocommerce_add_to_cart_button_text_single()
 				</svg></span>
 			<span class="elementor-button-text">Adicionar ao carrinho</span>
 		</span>
-<? php;
+<?php
 	}
 	return __(my_button_add_to_cart_text(), 'woocommerce');
 }
