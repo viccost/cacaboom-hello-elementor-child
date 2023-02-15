@@ -6,9 +6,9 @@ function my_pagseguro_css()
 	wp_enqueue_style('my-pagseguro-css');
 }
 
-if (is_checkout() == True){ 
-	add_action('wp_enqueue_scripts', 'my_pagseguro_css', 11);
-}
+
+add_action('wp_enqueue_scripts', 'my_pagseguro_css', 11);
+
 
 function my_theme_enqueue_styles()
 {

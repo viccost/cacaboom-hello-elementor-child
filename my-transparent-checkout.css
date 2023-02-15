@@ -8,5 +8,5 @@
 }
 
 .woocommerce-shipping-methods li {
-	white-space: normal;
+	white-space: normal !important;
 }
