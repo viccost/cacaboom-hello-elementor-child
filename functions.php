@@ -1,15 +1,13 @@
 <?php
 
-
 function my_pagseguro_css()
 {
-	wp_deregister_style('pagseguro-checkout');
-	wp_dequeue_style('pagseguro-checkout');
-	wp_enqueue_style('my-pagseguro-checkout', get_stylesheet_directory_uri() . '/my-transparent-checkout.css', array(), wp_get_theme()->get('Version'));
+	wp_register_style('my-pagseguro-css', get_stylesheet_directory_uri() . '/my-transparent-checkout.css');
+	wp_enqueue_style('my-pagseguro-css');
 }
 
-if (!is_checkout()) {
-	add_action('wp_enqueue_scripts', 'my_pagseguro_css', 20);
+if (is_checkout() == True){ 
+	add_action('wp_enqueue_scripts', 'my_pagseguro_css', 11);
 }
 
 function my_theme_enqueue_styles()
