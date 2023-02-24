@@ -89,3 +89,43 @@ a.reset_variations {
 	fill: white;
 	margin-right: 5px;
 }
+
+/* --- product page adjusts */ 
+
+@media screen and (max-width:768px){
+    .galery .elementor-widget-container {
+        margin: 5% 0px 0px 0px !important;
+    }
+    
+    .ingredientes .elementor-widget-container {
+        margin-top: 60px !important;
+    }
+    
+    .abas .elementor-widget-container{
+        margin-top: 20px !important;
+    }  
+    
+    .woocommerce div.product.elementor ul.tabs li{
+        width: 100%;
+        border-radius: 0px;
+    }
+   
+    .woocommerce div.product.elementor ul.tabs li:first-child {
+        border-radius: 4px 4px 0px 0px;
+    }
+}
+
+.woocommerce-tabs ul.wc-tabs li:hover{
+    background-color:  #553826 !important;
+    ;
+}
+.woocommerce-tabs ul.wc-tabs li a{
+    width: 100%;
+}
+.woocommerce-tabs ul.wc-tabs li a:hover{
+    color: #FDD003 !important;
+}   
+
+.woocommerce-tabs ul.wc-tabs li.active{
+background-color:  #553826 !important;
+}
