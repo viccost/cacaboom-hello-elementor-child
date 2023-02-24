@@ -6,10 +6,6 @@ function my_pagseguro_css()
 	wp_enqueue_style('my-pagseguro-css');
 }
 
-
-add_action('wp_enqueue_scripts', 'my_pagseguro_css', 11);
-
-
 function my_theme_enqueue_styles()
 {
 	wp_enqueue_style(
@@ -28,7 +24,25 @@ function my_theme_enqueue_styles()
 	);
 }
 
+function yikes_hide_tab_title(){
+    // Hide our custom tab's title.
+    add_filter( 
+        'yikes_woocommerce_custom_repeatable_product_tabs_heading', 
+        '__return_false', 
+        99 
+    );
+
+    // Hide the description tab's title.
+    add_filter( 'woocommerce_product_description_heading', '__return_false', 99 );
+
+    // Hide the additional information tab's title.
+    add_filter( 'woocommerce_product_additional_information_heading', '__return_false', 99 );
+}
+
+add_action('wp_enqueue_scripts', 'my_pagseguro_css', 11);
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles', 11);
+add_action( 'init', 'yikes_hide_tab_title', 10 );
+
 
 function my_woocommerce_product_tabs($tabs)
 {
@@ -89,6 +103,7 @@ function my_custom_add_to_cart_redirect($url)
 	## get_permalink(wc_get_page_id('Produtos'));
 	return $url;
 }
+
 
 add_filter('woocommerce_product_tabs', 'my_woocommerce_product_tabs', 11);
 add_filter('woocommerce_product_single_add_to_cart_text', 'my_woocommerce_add_to_cart_button_text_single');
